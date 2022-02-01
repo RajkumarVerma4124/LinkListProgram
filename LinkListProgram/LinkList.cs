@@ -79,6 +79,21 @@ namespace LinkListProgram
             }  
         }
 
+        //Deleting the last element(UC6)
+        public void DeleteLast()
+        {
+            if (this.head != null && this.head.next != null)
+            {
+                Node newNode = this.head;
+                while(newNode.next.next != null)
+                {
+                    newNode = newNode.next;
+                }
+                newNode.next = null;
+                Console.WriteLine("Deleted the element at last position");
+            }
+        }
+
         //Displaying the data from linklist nodes(UC1 & UC2)
         public void Display()
         {
