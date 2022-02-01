@@ -19,7 +19,8 @@ namespace LinkListProgram
 
             while(true)
             {
-                Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index \n5: Display \n6: Exit");
+                Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index"+
+                                "\n5: Delete Element From First Position \n6: Display \n7: Exit");
                 Console.Write("Enter The Choice From Above : ");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
@@ -51,9 +52,12 @@ namespace LinkListProgram
                         list.InsertAt(numIndex, numInsert);
                         break;
                     case 5:
-                        list.Display();
+                        list.DeleteFirst();
                         break;
                     case 6:
+                        list.Display();
+                        break;
+                    case 7:
                         Environment.Exit(0);
                         break;
                     default:

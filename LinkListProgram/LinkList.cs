@@ -50,8 +50,10 @@ namespace LinkListProgram
         public void InsertAt(int index,int data)
         {
             Node node = new Node(data);
-            if(index < 0)
+            if (index < 0)
                 Console.WriteLine("Invalid Position");
+            else if (this.head == null)
+                Console.WriteLine("LinkList Is Empty");
             else if(index == 0)
                 AddFirst(data);
             else
@@ -63,9 +65,20 @@ namespace LinkListProgram
                 }
                 node.next = temp.next;
                 temp.next = node;
+                Console.WriteLine("Elemnt Is Inserted Add Particular Index\n");
             }
-            Console.WriteLine("Elemnt Is Inserted Add Particular Index\n");
         }
+
+        //Deleting the first element(UC5)
+        public void DeleteFirst()
+        {
+            if(this.head != null)
+            {
+                this.head = this.head.next;
+                Console.WriteLine("Deleted the element at first position");
+            }  
+        }
+
         //Displaying the data from linklist nodes(UC1 & UC2)
         public void Display()
         {
