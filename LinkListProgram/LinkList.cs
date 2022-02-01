@@ -27,7 +27,7 @@ namespace LinkListProgram
                 }
                 temp.next = node;
             }
-            Console.Write("{0} is inserted into linklist", node.data);
+            Console.Write("{0} is inserted into linklist \n", node.data);
             Console.ReadLine();
         }
 
@@ -37,7 +37,13 @@ namespace LinkListProgram
             Node newNode = new Node(data);
             newNode.next = this.head;
             this.head = newNode;
-            Console.WriteLine("{0} is inserted into linklist", newNode.data);
+            Console.WriteLine("{0} is inserted into linklist \n", newNode.data);
+        }
+
+        //Creating append method to add the element at last position i.e tail(UC3)
+        public void Append(int data)
+        {
+            AddLast(data);
         }
 
         //Displaying the data from linklist nodes(UC1 & UC2)
@@ -52,6 +58,7 @@ namespace LinkListProgram
             }
             else
             {
+                Console.Write("The Elements In LinkList Are : ");
                 while (temp != null)
                 {
                     Console.Write(temp.data+" ");
