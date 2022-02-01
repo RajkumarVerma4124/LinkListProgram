@@ -46,6 +46,26 @@ namespace LinkListProgram
             AddLast(data);
         }
 
+        //Inserting the element at particular index(UC4)
+        public void InsertAt(int index,int data)
+        {
+            Node node = new Node(data);
+            if(index < 0)
+                Console.WriteLine("Invalid Position");
+            else if(index == 0)
+                AddFirst(data);
+            else
+            {
+                Node temp = this.head;
+                for(int i = 0; i < index-1; i++)
+                {
+                    temp = temp.next; 
+                }
+                node.next = temp.next;
+                temp.next = node;
+            }
+            Console.WriteLine("Elemnt Is Inserted Add Particular Index\n");
+        }
         //Displaying the data from linklist nodes(UC1 & UC2)
         public void Display()
         {

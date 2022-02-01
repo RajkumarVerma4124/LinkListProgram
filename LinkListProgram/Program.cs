@@ -19,7 +19,7 @@ namespace LinkListProgram
 
             while(true)
             {
-                Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Display \n5: Exit");
+                Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index \n5: Display \n6: Exit");
                 Console.Write("Enter The Choice From Above : ");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
@@ -37,15 +37,23 @@ namespace LinkListProgram
                         list.AddLast(numLast);
                         break;
                     case 3:
-                        //Adding the element at last position(UC1)
+                        //Appending the element at last position(UC3)
                         Console.Write("Enter A Number To Append: ");
                         int numAppend = int.Parse(Console.ReadLine());
                         list.AddLast(numAppend);
                         break;
                     case 4:
-                        list.Display();
+                        //Inserting the element at particular index(UC4)
+                        Console.Write("Enter A Number To Insert: ");
+                        int numInsert = int.Parse(Console.ReadLine());
+                        Console.Write("Enter Index Position You Want The Number To Add: ");
+                        int numIndex = int.Parse(Console.ReadLine());
+                        list.InsertAt(numIndex, numInsert);
                         break;
                     case 5:
+                        list.Display();
+                        break;
+                    case 6:
                         Environment.Exit(0);
                         break;
                     default:
