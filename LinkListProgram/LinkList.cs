@@ -31,9 +31,16 @@ namespace LinkListProgram
             Console.ReadLine();
         }
 
+        //Creating add first method to add the element at first position i.e head(UC2)
+        public void AddFirst(int data)
+        {
+            Node newNode = new Node(data);
+            newNode.next = this.head;
+            this.head = newNode;
+            Console.WriteLine("{0} is inserted into linklist", newNode.data);
+        }
 
-       
-        //Displaying the data from linklist nodes(UC1)
+        //Displaying the data from linklist nodes(UC1 & UC2)
         public void Display()
         {
             //Storing the head to temp node
