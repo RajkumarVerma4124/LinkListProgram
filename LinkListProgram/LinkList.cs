@@ -124,9 +124,44 @@ namespace LinkListProgram
             return -1;
         }
 
+        //Deleting the given element from linklist(UC9)
+        public int Delete(int data)
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                int indexDel = Search(data);
+                if (indexDel == -1)
+                {
+                    return 0;
+                }
+                else if (indexDel == 0)
+                {
+                    this.head = this.head.next;
+                    return data;
+                }
+                else 
+                {
+                    Node temp = this.head;
+                    Node newTemp;
+                    for (int i = 0; i < indexDel - 1; i++)
+                    {
+                        temp = temp.next;
+                    }
+                    newTemp = temp.next;
+                    temp.next = newTemp.next;
+                    return data;
+                }
+            }
+            return default;
+        }
+
         //Displaying the data from linklist nodes(UC1 & UC2)
         public void Display()
-        {
+            {
             //Storing the head to temp node
             Node temp = this.head;
             if (temp == null)
