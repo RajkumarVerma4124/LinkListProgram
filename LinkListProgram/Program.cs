@@ -21,7 +21,7 @@ namespace LinkListProgram
             {
                 Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index Or After Value"+
                                 "\n5: Delete Element From First Position  \n6: Delete Element From Last Position \n7: Delete A Value From List \n8: Search Node Key With Value"+
-                                "\n9: Display \n10: Exit");
+                                "\n9: Size Of List \n10: Display \n11: Exit");
                 Console.Write("Enter The Choice From Above : ");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
@@ -98,9 +98,14 @@ namespace LinkListProgram
                             Console.WriteLine("{0} is present in the current linklist at index {1}", searchValue, searchIndex);
                         break;
                     case 9:
-                        list.Display();
+                        //Implementing the size of the list(UC9)
+                        Console.WriteLine("The current size of linklist is : {0}",list.Size());
                         break;
                     case 10:
+                        //Displaying the elements in link list(UC1)
+                        list.Display();
+                        break;
+                    case 11:
                         Environment.Exit(0);
                         break;
                     default:

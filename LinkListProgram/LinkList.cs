@@ -159,6 +159,19 @@ namespace LinkListProgram
             return default;
         }
 
+        //Implementing the size of the list(UC9)
+        public int Size()
+        {
+            int size = 0;
+            Node temp = this.head;
+            while (temp != null)
+            {   
+                size++;
+                temp = temp.next;
+            }
+            return size;           
+        }
+
         //Displaying the data from linklist nodes(UC1 & UC2)
         public void Display()
             {
