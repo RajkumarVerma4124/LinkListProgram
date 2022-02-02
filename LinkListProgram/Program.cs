@@ -20,7 +20,8 @@ namespace LinkListProgram
             while(true)
             {
                 Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index"+
-                                "\n5: Delete Element From First Position \n6: Delete Element From Last Position \n7: Display \n8: Exit");
+                                "\n5: Delete Element From First Position \n6: Delete Element From Last Position \n7: Search Node Show Last \n8: Display"+
+                                "\n9: Exit");
                 Console.Write("Enter The Choice From Above : ");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
@@ -53,16 +54,28 @@ namespace LinkListProgram
                         break;
                     case 5:
                         //Deleting the first element(UC5)
-                        list.DeleteFirst();
+                        int deleteFirst = list.DeleteFirst();
+                        if(deleteFirst != 0)
+                            Console.WriteLine("Deleted the element {0} at first position", deleteFirst);
                         break;
                     case 6:
                         //Deleting the last element(UC6)
-                        list.DeleteLast();
+                        int deleteLast = list.DeleteLast();
+                        if (deleteLast != 0)
+                            Console.WriteLine("Deleted the element {0} at last position", deleteLast);
                         break;
                     case 7:
-                        list.Display();
+                        //Show the search element is present or not(UC6)
+                        Console.Write("Enter a number to search in linklist : ");
+                        //int searchValue = int.Parse(Console.ReadLine());
+                        int searchValue = list.Search(int.Parse(Console.ReadLine()));
+                        if(searchValue != 0)
+                            Console.WriteLine("{0} is present in the current linklist", list.Search(searchValue));
                         break;
                     case 8:
+                        list.Display();
+                        break;
+                    case 9:
                         Environment.Exit(0);
                         break;
                     default:

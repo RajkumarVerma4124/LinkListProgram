@@ -28,7 +28,6 @@ namespace LinkListProgram
                 temp.next = node;
             }
             Console.Write("{0} is inserted into linklist \n", node.data);
-            Console.ReadLine();
         }
 
         //Creating add first method to add the element at first position i.e head(UC2)
@@ -70,28 +69,56 @@ namespace LinkListProgram
         }
 
         //Deleting the first element(UC5)
-        public void DeleteFirst()
+        public int DeleteFirst()
         {
-            if(this.head != null)
-            {
-                this.head = this.head.next;
-                Console.WriteLine("Deleted the element at first position");
-            }  
+            if (this.head == null)
+                Console.WriteLine("LinkList Is Empty");
+            int deletedNode = this.head.data;
+            this.head = this.head.next;
+            return deletedNode;
         }
 
         //Deleting the last element(UC6)
-        public void DeleteLast()
+        public int DeleteLast()
         {
-            if (this.head != null && this.head.next != null)
+            Node newNode = this.head;
+            if(this.head == null)
             {
-                Node newNode = this.head;
-                while(newNode.next.next != null)
+                Console.WriteLine("LinkList Is Empty");
+                return default;
+            }
+            else if (this.head.next == null)
+            {
+                int deletedNode = this.head.data;
+                this.head = null;
+                return deletedNode;
+            }
+            else if (this.head != null && this.head.next != null)
+            {
+                while (newNode.next.next != null)
                 {
                     newNode = newNode.next;
                 }
-                newNode.next = null;
-                Console.WriteLine("Deleted the element at last position");
             }
+            int lastDeletedNode = newNode.next.data;
+            newNode.next = null;
+            return lastDeletedNode;
+        }
+
+        //Search the node element(UC7)
+        public int Search(int data)
+        {
+            Node temp = this.head;
+            while (temp != null)
+            {
+                if (temp.data == data)
+                {
+                    return data;
+                }
+                temp = temp.next;
+            }
+            Console.WriteLine("{0} is not present in the current linklist", data);
+            return default;
         }
 
         //Displaying the data from linklist nodes(UC1 & UC2)
