@@ -15,11 +15,11 @@ namespace LinkListProgram
             Console.ReadLine();
 
             //Creating a single linklist(UC1)
-            LinkList list = new LinkList();
+            SortedLinkedList list = new SortedLinkedList(); 
 
             while(true)
             {
-                Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index Or After Value"+
+                Console.WriteLine("1: Add Element At First \n2: Add Element To Get Sorted \n3: Append A Element \n4: Insert Element At Particular Index Or After Value"+
                                 "\n5: Delete Element From First Position  \n6: Delete Element From Last Position \n7: Delete A Value From List \n8: Search Node Key With Value"+
                                 "\n9: Size Of List \n10: Display \n11: Exit");
                 Console.Write("Enter The Choice From Above : ");
@@ -33,16 +33,16 @@ namespace LinkListProgram
                         list.AddFirst(numFirst);
                         break;
                     case 2:
-                        //Adding the element at last position(UC1)
+                        //Refactored the lastadd method to take element to get in sorted order(UC10)
                         Console.Write("Enter A Number To Add At Last Positon : ");
-                        int numLast = int.Parse(Console.ReadLine());
-                        list.AddLast(numLast);
+                        int numSort = int.Parse(Console.ReadLine());
+                        list.Add(numSort);
                         break;
                     case 3:
                         //Appending the element at last position(UC3)
                         Console.Write("Enter A Number To Append: ");
                         int numAppend = int.Parse(Console.ReadLine());
-                        list.AddLast(numAppend);
+                        list.Append(numAppend);
                         break;
                     case 4:
                         //Inserting the element at particular index(UC4 & UC8)

@@ -6,12 +6,46 @@ using System.Threading.Tasks;
 
 namespace LinkListProgram
 {
-    public class LinkList
+    public class SortedLinkedList
     {
         public Node head;
 
-        //Creating add last method to add the data in linklist sequentially(UC1)
-        public void AddLast(int data)
+        public SortedLinkedList()
+        {
+            this.head = null;
+        }
+
+        //Refactored the lastadd method to take element to get in sorted order(UC10)
+        public void Add(int data)
+        {
+            Node newNode = new Node(data);
+            Node currentNode = this.head, previousNode = null;
+            while (currentNode != null && currentNode.data < newNode.data)
+            {
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            if (previousNode == null)
+                this.head = newNode;
+            else
+            {
+                previousNode.next = newNode;
+            }
+            newNode.next = currentNode;
+            Console.WriteLine("{0} is inserted into linklist to get sorted\n", newNode.data);
+        }
+
+        //Creating add first method to add the element at first position i.e head(UC2)
+        public void AddFirst(int data)
+        {
+            Node newNode = new Node(data);
+            newNode.next = this.head;
+            this.head = newNode;
+            Console.WriteLine("{0} is inserted into linklist \n", newNode.data);
+        }
+
+        //Creating append method to add the element at last position i.e tail(UC3)
+        public void Append(int data)
         {
             Node node = new Node(data);
             if (this.head == null)
@@ -27,22 +61,7 @@ namespace LinkListProgram
                 }
                 temp.next = node;
             }
-            Console.Write("{0} is inserted into linklist \n", node.data);
-        }
-
-        //Creating add first method to add the element at first position i.e head(UC2)
-        public void AddFirst(int data)
-        {
-            Node newNode = new Node(data);
-            newNode.next = this.head;
-            this.head = newNode;
-            Console.WriteLine("{0} is inserted into linklist \n", newNode.data);
-        }
-
-        //Creating append method to add the element at last position i.e tail(UC3)
-        public void Append(int data)
-        {
-            AddLast(data);
+            Console.Write("{0} is append into linklist \n", node.data);
         }
 
         //Inserting the element at particular index(UC4 & UC8)
