@@ -45,7 +45,7 @@ namespace LinkListProgram
             AddLast(data);
         }
 
-        //Inserting the element at particular index(UC4)
+        //Inserting the element at particular index(UC4 & UC8)
         public void InsertAt(int index,int data)
         {
             Node node = new Node(data);
@@ -64,7 +64,7 @@ namespace LinkListProgram
                 }
                 node.next = temp.next;
                 temp.next = node;
-                Console.WriteLine("Elemnt Is Inserted Add Particular Index\n");
+                Console.WriteLine("Element Is Inserted\n");
             }
         }
 
@@ -105,20 +105,23 @@ namespace LinkListProgram
             return lastDeletedNode;
         }
 
-        //Search the node element(UC7)
+        //Search the node element(UC7 & UC8)
         public int Search(int data)
         {
+            int index = -1;
             Node temp = this.head;
             while (temp != null)
             {
                 if (temp.data == data)
                 {
-                    return data;
+                    index++;
+                    return index;
                 }
+                index++;
                 temp = temp.next;
             }
             Console.WriteLine("{0} is not present in the current linklist", data);
-            return default;
+            return -1;
         }
 
         //Displaying the data from linklist nodes(UC1 & UC2)

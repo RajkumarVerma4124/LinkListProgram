@@ -19,8 +19,8 @@ namespace LinkListProgram
 
             while(true)
             {
-                Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index"+
-                                "\n5: Delete Element From First Position \n6: Delete Element From Last Position \n7: Search Node Show Last \n8: Display"+
+                Console.WriteLine("1: Add Element At First \n2: Add Element At Last \n3: Append A Element \n4: Insert Element At Particular Index Or After Value"+
+                                "\n5: Delete Element From First Position \n6: Delete Element From Last Position \n7: Search Node Key With Value \n8: Display"+
                                 "\n9: Exit");
                 Console.Write("Enter The Choice From Above : ");
                 int choice = int.Parse(Console.ReadLine());
@@ -45,12 +45,29 @@ namespace LinkListProgram
                         list.AddLast(numAppend);
                         break;
                     case 4:
-                        //Inserting the element at particular index(UC4)
+                        //Inserting the element at particular index(UC4 & UC8)
+                        Console.WriteLine("\n1 Insert With Index \n2:Insert After Particular Value");
+                        Console.Write("Enter A Choice From Above : ");
+                        int insChoice = int.Parse(Console.ReadLine());
+                        if (insChoice != 1 && insChoice != 2)
+                        {
+                            Console.WriteLine("Wrong Choice");
+                            break;
+                        }  
                         Console.Write("Enter A Number To Insert: ");
                         int numInsert = int.Parse(Console.ReadLine());
-                        Console.Write("Enter Index Position You Want The Number To Add: ");
-                        int numIndex = int.Parse(Console.ReadLine());
-                        list.InsertAt(numIndex, numInsert);
+                        if (insChoice == 1)
+                        { 
+                            Console.Write("Enter Index Position You Want The Number To Add: ");
+                            int numIndex = int.Parse(Console.ReadLine());
+                            list.InsertAt(numIndex, numInsert);
+                        }
+                        else if (insChoice == 2)
+                        {
+                            Console.Write("Enter The Value After Which You Want You Number To Add: ");
+                            int numValue = int.Parse(Console.ReadLine());
+                            list.InsertAt(list.Search(numValue)+1, numInsert);
+                        }
                         break;
                     case 5:
                         //Deleting the first element(UC5)
@@ -65,12 +82,12 @@ namespace LinkListProgram
                             Console.WriteLine("Deleted the element {0} at last position", deleteLast);
                         break;
                     case 7:
-                        //Show the search element is present or not(UC6)
+                        //Show the search element is present or not with key(UC7 & UC8)
                         Console.Write("Enter a number to search in linklist : ");
-                        //int searchValue = int.Parse(Console.ReadLine());
-                        int searchValue = list.Search(int.Parse(Console.ReadLine()));
-                        if(searchValue != 0)
-                            Console.WriteLine("{0} is present in the current linklist", list.Search(searchValue));
+                        int searchValue = int.Parse(Console.ReadLine());
+                        int searchIndex = list.Search(searchValue);
+                        if(searchIndex >= 0)
+                            Console.WriteLine("{0} is present in the current linklist at index {1}", searchValue, searchIndex);
                         break;
                     case 8:
                         list.Display();
